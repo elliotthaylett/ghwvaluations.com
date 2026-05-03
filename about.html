@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Gaynor Wright FIRV · FNAJ — GHW Valuations</title>
+  <meta name="description" content="Gaynor Wright FIRV · FNAJ — independent jewellery valuer and expert witness with over 30 years' experience, formerly senior management at Tiffany & Co., London." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ─── PAGE-SPECIFIC: ABOUT ──────────────────────────────────── */
+
+    /* Hero — shorter than index, centred layout */
+    .about-hero {
+      position: relative;
+      min-height: 52vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      padding-bottom: 0;
+    }
+    .about-hero .hero-bg {
+      background:
+        linear-gradient(150deg, var(--teal-dark) 0%, var(--teal) 55%, #3aafa630 100%),
+        radial-gradient(ellipse at 80% 30%, rgba(201,169,110,0.18) 0%, transparent 65%);
+    }
+    .about-hero-inner {
+      position: relative;
+      z-index: 1;
+      padding-top: calc(var(--nav-h) + 3rem);
+      padding-bottom: 5rem;
+      width: 100%;
+    }
+    .about-hero-inner .hero-eyebrow { color: var(--champagne); }
+    .about-hero-inner h1 { color: var(--white); max-width: 640px; }
+    .about-hero-inner .hero-body { max-width: 560px; }
+    .about-hero-creds {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    .cred-pill {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.9rem;
+      border-radius: 2rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+    }
+
+    /* ─── PROFILE SECTION ─────────────────────────────────────── */
+    .profile-section { background: var(--white); }
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* Sidebar */
+    .profile-sidebar { position: sticky; top: calc(var(--nav-h) + 2rem); }
+    .headshot-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, var(--teal-pale) 0%, var(--champ-pale) 100%);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+    .headshot-icon { font-size: 2.8rem; opacity: 0.35; line-height: 1; }
+    .headshot-placeholder span { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+
+    .sidebar-contact {
+      background: var(--teal-pale);
+      border: 1px solid var(--teal-light);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .sidebar-contact h4 {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin-bottom: 0.85rem;
+    }
+    .sidebar-contact a {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--teal-dark);
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+    }
+    .sidebar-contact a:hover { color: var(--teal); }
+    .sidebar-contact a span { margin-right: 0.4rem; }
+
+    .cv-download {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--white);
+      border: 1.5px solid var(--teal);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      color: var(--teal-dark);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      font-family: var(--font-body);
+    }
+    .cv-download:hover {
+      background: var(--teal-pale);
+      border-color: var(--teal-dark);
+    }
+    .cv-download-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+    /* Main content */
+    .profile-main h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+    }
+    .profile-main p {
+      font-size: 0.97rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+    .profile-main p + p { margin-top: 1.1em; }
+    .profile-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--champagne);
+      margin: 2.5rem 0;
+    }
+
+    /* ─── CREDENTIALS SECTION ─────────────────────────────────── */
+    .credentials-section { background: var(--off-white); }
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .cred-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 2rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .cred-card:hover {
+      border-color: var(--teal-mid);
+      box-shadow: var(--shadow-sm);
+    }
+    .cred-badge-label {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--teal);
+      min-width: 52px;
+      line-height: 1.1;
+      padding-top: 2px;
+    }
+    .cred-card-body {}
+    .cred-card-body strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 0.3rem;
+    }
+    .cred-card-body p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .cred-year {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--champagne);
+      font-weight: 500;
+      margin-top: 0.3rem;
+      display: block;
+    }
+
+    /* ─── QUALIFICATIONS TABLE ────────────────────────────────── */
+    .qualifications-section { background: var(--champ-pale); }
+    .quals-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(201,169,110,0.25);
+    }
+    .qual-row {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 1.5rem;
+      align-items: baseline;
+      padding: 1.25rem 1.75rem;
+      background: var(--white);
+      border-bottom: 1px solid rgba(201,169,110,0.15);
+      transition: background 0.15s;
+    }
+    .qual-row:last-child { border-bottom: none; }
+    .qual-row:hover { background: var(--champ-pale); }
+    .qual-year {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--champagne);
+      font-weight: 500;
+    }
+    .qual-name {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      font-weight: 400;
+    }
+    .qual-body {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+    .qual-distinction {
+      display: inline-block;
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* ─── ROLES SECTION ───────────────────────────────────────── */
+    .roles-section { background: var(--white); }
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .role-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      transition: all 0.25s ease;
+    }
+    .role-card:hover {
+      border-color: var(--teal-mid);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .role-icon {
+      font-size: 1.5rem;
+      color: var(--champagne);
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+    .role-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-body);
+    }
+    .role-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+    .role-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ─── CAREER SECTION ──────────────────────────────────────── */
+    .career-section { background: var(--off-white); }
+    .career-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .career-text h2 { margin-bottom: 1.5rem; }
+    .career-text p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.85; }
+    .tiffany-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 1rem;
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+    }
+    .tiffany-badge span { color: var(--champagne); font-size: 1.1rem; }
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: var(--border-mid);
+    }
+    .timeline-item {
+      position: relative;
+      padding: 0 0 2.25rem 1.5rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 7px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--teal-light);
+      border: 2px solid var(--teal);
+    }
+    .timeline-period {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--champagne);
+      font-weight: 500;
+      font-family: var(--font-body);
+      margin-bottom: 0.3rem;
+    }
+    .timeline-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 0.35rem;
+    }
+    .timeline-body {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .profile-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .profile-sidebar { position: static; display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; align-items: start; }
+      .headshot-placeholder { margin-bottom: 0; }
+      .cred-grid { grid-template-columns: 1fr; }
+      .roles-grid { grid-template-columns: 1fr 1fr; }
+      .career-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 600px) {
+      .profile-sidebar { grid-template-columns: 1fr; }
+      .roles-grid { grid-template-columns: 1fr; }
+      .qual-row { grid-template-columns: 60px 1fr; gap: 1rem; }
+      .qual-body { text-align: left; white-space: normal; grid-column: 2; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HEADER ───────────────────────────────────────────────── -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <nav class="nav-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-main">GHW <span style="color: var(--champagne);">Valuations</span></span>
+          <span class="logo-sub">Gaynor Wright FIRV · FNAJ</span>
+        </a>
+        <div class="site-nav" id="siteNav">
+          <a href="valuations.html">Valuations</a>
+          <a href="expert-witness.html">Expert Witness</a>
+          <a href="tutoring.html">Tutoring</a>
+          <a href="about.html" style="color:var(--champagne)">About</a>
+          <a href="enquiries.html" class="nav-cta">Make an Enquiry</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ─── HERO ─────────────────────────────────────────────────── -->
+  <section class="about-hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="about-hero-inner">
+        <p class="hero-eyebrow">About Gaynor Wright</p>
+        <h1>Independent Jewellery Valuer<br><em style="color: var(--champagne); font-style: normal;">& Expert Witness</em></h1>
+        <p class="hero-body" style="color:rgba(255,255,255,0.8);font-weight:300;font-size:1.05rem;margin-top:1rem;">
+          Fellow of the Institute of Registered Valuers. Fellow of the National Association of Jewellers.
+          Formerly senior management, Tiffany &amp; Co., London. Founder of GHW Valuations.
+        </p>
+        <div class="about-hero-creds">
+          <span class="cred-pill">FIRV · Ref 96916</span>
+          <span class="cred-pill">FNAJ</span>
+          <span class="cred-pill">Gem-A Member</span>
+          <span class="cred-pill">SoJH</span>
+          <span class="cred-pill">30+ Years' Experience</span>
+          <span class="cred-pill">GIA Pearl Graduate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROFILE ───────────────────────────────────────────────── -->
+  <section class="profile-section section">
+    <div class="container">
+      <div class="profile-grid">
+
+        <!-- Sidebar -->
+        <aside class="profile-sidebar">
+          <div class="headshot-placeholder">
+            <div class="headshot-icon">◈</div>
+            <span>Professional portrait<br>coming soon</span>
+          </div>
+
+          <div class="sidebar-contact">
+            <h4>Contact</h4>
+            <a href="mailto:info@ghwvaluations.com"><span>✉</span> info@ghwvaluations.com</a>
+            <a href="tel:07871165687"><span>☎</span> 07871 165687</a>
+            <a href="enquiries.html" style="margin-top:0.75rem;display:block;font-weight:500;color:var(--teal);">Make an Enquiry →</a>
+          </div>
+
+          <a href="GaynorWright_CV.pdf" class="cv-download" download>
+            <span class="cv-download-icon">⬇</span>
+            Download CV (PDF)
+          </a>
+        </aside>
+
+        <!-- Main copy -->
+        <div class="profile-main">
+          <p class="section-eyebrow">Professional Profile</p>
+          <h2>Gaynor Wright<br><em>FIRV · FNAJ</em></h2>
+
+          <p>Gaynor Wright is one of the United Kingdom's most experienced independent jewellery valuers, with a professional career spanning more than thirty years in the luxury jewellery sector. She founded GHW Valuations to provide private clients, solicitors, and insurers with independent, authoritative valuation services — free from retail affiliation and conducted to the highest professional standards.</p>
+
+          <p>Prior to establishing her practice, Gaynor held a senior management position at Tiffany &amp; Co., London — an environment where precision of knowledge, rigour of presentation, and uncompromising professional conduct are not optional. That foundation informs every aspect of her work today.</p>
+
+          <div class="profile-divider"></div>
+
+          <p>As a Fellow of the Institute of Registered Valuers (FIRV Ref 96916) — the highest grade of membership in the principal professional body for jewellery valuers in the UK — and a Fellow of the National Association of Jewellers, Gaynor holds credentials that are among the most demanding available in her field. Her valuations are relied upon by solicitors, insurers, executors, and private individuals throughout Cambridgeshire, Bedfordshire, Hertfordshire, and South Lincolnshire.</p>
+
+          <p>Gaynor's practice covers insurance replacement valuations, probate assessments prepared in accordance with the Inheritance Tax Act 1984, independent valuations for matrimonial and financial remedy proceedings, and expert witness reports prepared to the standard required by CPR Part 35. She accepts instruction from either party in proceedings and as single joint expert.</p>
+
+          <div class="profile-divider"></div>
+
+          <p>Beyond her valuation practice, Gaynor contributes to the education and professional standards of the sector at a national level. She is one of only two professionals in the United Kingdom entrusted with Quality Assurance of the NAJ Foundations of Appraisal Practice coursework — the principal professional qualification for jewellery valuers in the UK. She serves as IRV Advisors representative on the NAJ Education and Training Group, the body responsible for curriculum and professional standards across the valuation sector, and collaborates with Birmingham City University to mentor and assess students undertaking professional valuation studies.</p>
+
+          <p>She is consistently fully booked — a reflection of the confidence that professionals and private individuals alike place in her work.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CREDENTIALS ───────────────────────────────────────────── -->
+  <section class="credentials-section section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Professional Memberships</p>
+        <h2 class="section-title">Credentials &amp; Accreditations</h2>
+      </div>
+      <div class="cred-grid">
+
+        <div class="cred-card">
+          <div class="cred-badge-label">FIRV</div>
+          <div class="cred-card-body">
+            <strong>Fellow of the Institute of Registered Valuers</strong>
+            <p>The highest grade of membership in the UK's principal professional body for jewellery valuers. Fellowship is conferred on those who meet the IRV's most exacting standards of competence and professional conduct.</p>
+            <span class="cred-year">Ref 96916 · Since 2016</span>
+          </div>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-badge-label">FNAJ</div>
+          <div class="cred-card-body">
+            <strong>Fellow of the National Association of Jewellers</strong>
+            <p>Awarded in recognition of sustained contribution to the jewellery profession. Gaynor also serves as IRV Advisors representative on the NAJ Education and Training Group.</p>
+          </div>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-badge-label">Gem-A</div>
+          <div class="cred-card-body">
+            <strong>Member of the Gemmological Association of Great Britain</strong>
+            <p>Reflecting ongoing engagement with the science and practice of gemmology, and a commitment to maintaining knowledge at the frontier of the field.</p>
+          </div>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-badge-label">SoJH</div>
+          <div class="cred-card-body">
+            <strong>Society of Jewellery Historians</strong>
+            <p>Membership reflecting Gaynor's engagement with the historical and scholarly dimensions of jewellery — an asset in valuations involving antique, period, and provenance-sensitive pieces.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── QUALIFICATIONS ────────────────────────────────────────── -->
+  <section class="qualifications-section section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Academic &amp; Professional Qualifications</p>
+        <h2 class="section-title">A Career Built on Rigorous Study</h2>
+      </div>
+      <div class="quals-list">
+        <div class="qual-row">
+          <span class="qual-year">2021</span>
+          <span class="qual-name">GIA Pearl Graduate Diploma</span>
+          <span class="qual-body">Gemological Institute of America</span>
+        </div>
+        <div class="qual-row">
+          <span class="qual-year">2019</span>
+          <span class="qual-name">CPAA Pearl Specialist</span>
+          <span class="qual-body">CPAA</span>
+        </div>
+        <div class="qual-row">
+          <span class="qual-year">2017</span>
+          <span class="qual-name">Diamond Grading Diploma<span class="qual-distinction">Distinction</span></span>
+          <span class="qual-body">DGA</span>
+        </div>
+        <div class="qual-row">
+          <span class="qual-year">2017</span>
+          <span class="qual-name">Diamond Practical Grading Certificate</span>
+          <span class="qual-body">DGA</span>
+        </div>
+        <div class="qual-row">
+          <span class="qual-year">2014</span>
+          <span class="qual-name">CAT</span>
+          <span class="qual-body">National Association of Jewellers</span>
+        </div>
+        <div class="qual-row">
+          <span class="qual-year">2009</span>
+          <span class="qual-name">Diamond Grading Certificate</span>
+          <span class="qual-body">IGI Antwerp</span>
+        </div>
+        <div class="qual-row">
+          <span class="qual-year">2007</span>
+          <span class="qual-name">Professional Jewellers Diploma in Gemmology<span class="qual-distinction">Distinction</span></span>
+          <span class="qual-body">NAG</span>
+        </div>
+        <div class="qual-row">
+          <span class="qual-year">1994</span>
+          <span class="qual-name">BA (Hons) Jewellery Design and Manufacture</span>
+          <span class="qual-body">West Surrey College of Art and Design</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ROLES ─────────────────────────────────────────────────── -->
+  <section class="roles-section section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Professional Roles &amp; Contributions</p>
+        <h2 class="section-title">Shaping the Standards of the Profession</h2>
+      </div>
+      <div class="roles-grid">
+
+        <div class="role-card">
+          <div class="role-icon">⬡</div>
+          <p class="role-eyebrow">NAJ · National Standards</p>
+          <h3>FoAP Quality Assurance</h3>
+          <p>One of only two professionals in the United Kingdom entrusted with Quality Assurance of the NAJ Foundations of Appraisal Practice coursework — the principal professional qualification for jewellery valuers in the UK. Gaynor reviews submitted work and benchmarks it against the programme's national standard.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-icon">◈</div>
+          <p class="role-eyebrow">NAJ · Policy &amp; Curriculum</p>
+          <h3>Education &amp; Training Group</h3>
+          <p>IRV Advisors representative on the NAJ Education and Training Group — the body that shapes curriculum development, policy, and professional standards for the valuation sector across the United Kingdom. Gaynor contributes the perspective of practising valuers to national-level decisions.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-icon">⊙</div>
+          <p class="role-eyebrow">BCU · Higher Education</p>
+          <h3>Birmingham City University</h3>
+          <p>Gaynor collaborates with Birmingham City University to mentor and assess students undertaking professional valuation studies, bringing the realities of thirty years' practice to an academic setting and helping students bridge the gap between theory and professional life.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CAREER ────────────────────────────────────────────────── -->
+  <section class="career-section section">
+    <div class="container">
+      <div class="career-inner">
+
+        <div class="career-text">
+          <p class="section-eyebrow">Career History</p>
+          <h2>Thirty Years at the Highest Level of the Profession</h2>
+          <div class="tiffany-badge">
+            <span>◈</span> Formerly Senior Management, Tiffany &amp; Co., London
+          </div>
+          <p>There is a meaningful difference between someone who has studied jewellery and someone who has spent three decades working at its highest levels. Gaynor's career began in design and manufacture, progressed through senior management in one of the world's most demanding luxury retail environments, and has for many years been focused on the independent practice for which she is now known.</p>
+          <p>That trajectory — from creative practice to commercial rigour to professional independence — gives Gaynor a breadth of perspective that few valuers can match. It informs how she approaches a valuation, how she structures a report, and how she defends an opinion under scrutiny.</p>
+        </div>
+
+        <div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <p class="timeline-period">2016 – Present</p>
+              <p class="timeline-title">GHW Valuations — Founder &amp; Principal Valuer</p>
+              <p class="timeline-body">Independent jewellery valuation practice serving private clients, solicitors, and insurers across four counties. Specialist in insurance, probate, family division, and expert witness work. Consistently fully booked.</p>
+            </div>
+            <div class="timeline-item">
+              <p class="timeline-period">Ongoing</p>
+              <p class="timeline-title">NAJ FoAP QA Provider &amp; Tutor</p>
+              <p class="timeline-body">One of two UK professionals providing Quality Assurance for FoAP coursework. Specialist tuition for students working towards the national qualification for jewellery valuers.</p>
+            </div>
+            <div class="timeline-item">
+              <p class="timeline-period">Ongoing</p>
+              <p class="timeline-title">IRV Advisors Representative — NAJ Education &amp; Training Group</p>
+              <p class="timeline-body">Representing the IRV on the national body responsible for valuation education policy, curriculum development, and professional standards in the UK.</p>
+            </div>
+            <div class="timeline-item">
+              <p class="timeline-period">Prior to 2016</p>
+              <p class="timeline-title">Tiffany &amp; Co., London — Senior Management</p>
+              <p class="timeline-body">A role demanding uncompromising standards of knowledge, client presentation, and professional conduct in one of the world's foremost luxury jewellery environments.</p>
+            </div>
+            <div class="timeline-item">
+              <p class="timeline-period">1994</p>
+              <p class="timeline-title">BA (Hons) Jewellery Design and Manufacture</p>
+              <p class="timeline-body">West Surrey College of Art and Design. A grounding in the making and construction of jewellery that underpins Gaynor's technical understanding of the objects she values.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ───────────────────────────────────────────────────── -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <h2>Ready to Discuss Your Requirements?</h2>
+          <p>Whether you are a private client, solicitor, or legal professional, Gaynor welcomes your enquiry. Initial discussions are at no charge.</p>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="enquiries.html" class="btn btn-primary btn-large">Make an Enquiry</a>
+          <a href="GaynorWright_CV.pdf" class="btn btn-ghost btn-large" download style="border-color:rgba(255,255,255,0.4);color:var(--white);">Download CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <span class="logo-main">GHW Valuations</span>
+          <p>Independent Jewellery Valuer<br>St Neots, Cambridgeshire</p>
+          <p><a href="mailto:info@ghwvaluations.com">info@ghwvaluations.com</a></p>
+          <p><a href="tel:07871165687">07871 165687</a></p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Services</h4>
+          <a href="valuations.html">Jewellery Valuations</a>
+          <a href="expert-witness.html">Expert Witness</a>
+          <a href="tutoring.html">Tutoring &amp; Education</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Information</h4>
+          <a href="about.html">About Gaynor</a>
+          <a href="enquiries.html">Make an Enquiry</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+
+        <div class="footer-accreditations">
+          <h4>Accreditations</h4>
+          <div class="accreditation-badges">
+            <span class="badge">FIRV · 96916</span>
+            <span class="badge">FNAJ</span>
+            <span class="badge">Gem-A</span>
+            <span class="badge">SoJH</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="footer-base">
+        <p>© 2025 GHW Valuations. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-aware header
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('siteNav').classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

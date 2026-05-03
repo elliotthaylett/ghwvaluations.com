@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expert Witness Services — GHW Valuations</title>
+  <meta name="description" content="Independent expert witness reports and statements for probate disputes, divorce financial remedy proceedings, and insurance matters. Gaynor Wright FIRV, FNAJ." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ─── PAGE-SPECIFIC: EXPERT WITNESS ─────────────────────────── */
+
+    /* Hero variant — darker, more authoritative */
+    .hero-ew .hero-bg {
+      background:
+        linear-gradient(145deg, #0f3d3a 0%, var(--teal-dark) 40%, var(--teal) 100%),
+        radial-gradient(ellipse at 75% 40%, rgba(201,169,110,0.18) 0%, transparent 55%);
+    }
+
+    /* What is an Expert Witness — explanation panel */
+    .explainer { background: var(--white); }
+    .explainer-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .explainer-text h2 { margin-bottom: 1.25rem; }
+    .explainer-text p { color: var(--text-mid); font-size: 0.95rem; line-height: 1.85; }
+    .explainer-aside {
+      background: var(--teal-pale);
+      border: 1px solid var(--border-mid);
+      border-left: 3px solid var(--teal);
+      border-radius: var(--radius-md);
+      padding: 2.25rem 2rem;
+    }
+    .explainer-aside h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: var(--teal-dark);
+    }
+    .explainer-aside p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.8; }
+    .cpr-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-mid);
+    }
+    .cpr-note-icon {
+      font-size: 1.1rem;
+      color: var(--champagne);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .cpr-note p { font-size: 0.82rem; color: var(--text-muted); margin: 0; line-height: 1.7; }
+
+    /* Case types */
+    .case-types { background: var(--champ-pale); }
+    .case-types-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .case-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+    .case-card:hover {
+      border-color: var(--teal-mid);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .case-type-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 0.5rem;
+    }
+    .case-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 0.9rem;
+      color: var(--text-dark);
+    }
+    .case-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      flex: 1;
+    }
+    .case-card-features {
+      list-style: none;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .case-card-features li {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.5;
+    }
+    .case-card-features li::before {
+      content: '–';
+      color: var(--teal);
+      flex-shrink: 0;
+      font-weight: 500;
+    }
+
+    /* Credentials section */
+    .credentials-section { background: var(--off-white); }
+    .credentials-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .credentials-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+    .credential-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .credential-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      letter-spacing: 0.03em;
+    }
+    .credential-item strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      color: var(--text-dark);
+    }
+    .credential-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.7;
+    }
+    .credentials-profile {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+    }
+    .credentials-profile h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.25rem;
+    }
+    .credentials-profile .profile-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+    }
+    .credentials-profile p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+    .profile-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border);
+    }
+    .profile-badge {
+      background: var(--teal-pale);
+      border: 1px solid var(--border-mid);
+      color: var(--teal-dark);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-sm);
+    }
+
+    /* What to expect section */
+    .process-section { background: var(--white); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      counter-reset: step;
+    }
+    .process-step {
+      position: relative;
+    }
+    .process-step::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      right: -1rem;
+      width: 2rem;
+      height: 1px;
+      background: var(--border-mid);
+    }
+    .process-step:last-child::after { display: none; }
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid var(--teal-mid);
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      flex-shrink: 0;
+    }
+    .process-step h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+    .process-step p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Solicitor-facing enquiry section */
+    .solicitor-enquiry { background: var(--teal-pale); border-top: 1px solid var(--border-mid); border-bottom: 1px solid var(--border-mid); }
+    .solicitor-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .solicitor-enquiry h2 { margin-bottom: 1rem; }
+    .solicitor-enquiry p { color: var(--text-mid); font-size: 0.95rem; line-height: 1.8; }
+    .enquiry-panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+    }
+    .enquiry-panel h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+    .enquiry-panel .panel-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      line-height: 1.6;
+    }
+    .enquiry-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 2rem;
+    }
+    .enquiry-checklist li {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.5;
+    }
+    .enquiry-checklist li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .explainer-inner,
+      .credentials-inner,
+      .solicitor-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .case-types-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-step::after { display: none; }
+    }
+    @media (max-width: 600px) {
+      .process-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─── HEADER ──────────────────────────────────────────────── -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <nav class="nav-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-main">GHW <span style="color: var(--champagne);">Valuations</span></span>
+          <span class="logo-sub">Gaynor Wright FIRV · FNAJ</span>
+        </a>
+        <div class="site-nav" id="site-nav">
+          <a href="valuations.html">Valuations</a>
+          <a href="expert-witness.html" style="color: var(--champagne);">Expert Witness</a>
+          <a href="tutoring.html">Tutoring</a>
+          <a href="about.html">About</a>
+          <a href="enquiries.html" class="nav-cta">Make an Enquiry</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ─── HERO ────────────────────────────────────────────────── -->
+  <section class="hero hero-ew">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Expert Witness Services</p>
+          <h1 class="hero-title">Independent Expert<br><em style="color: var(--champagne); font-style: normal;">Evidence</em> for the Courts</h1>
+          <p class="hero-body">
+            Expert witness reports and statements for probate disputes, divorce financial remedy proceedings,
+            and insurance matters — prepared to the standard required by the Civil Procedure Rules.
+          </p>
+          <div class="hero-actions">
+            <a href="enquiries.html" class="btn btn-primary btn-large">Discuss Your Case</a>
+            <a href="#case-types" class="btn btn-ghost btn-large">Areas of Practice</a>
+          </div>
+          <div class="hero-credentials">
+            <span>Gem-A Member</span>
+            <span class="divider">·</span>
+            <span>Society of Jewellery Historians Member</span>
+            <span class="divider">·</span>
+            <span>Fellow of the National Association of Jewellers</span>
+            <span class="divider">·</span>
+            <span>30+ Years' Experience</span>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <div class="hero-image-placeholder">
+            <span class="placeholder-icon">⚖</span>
+            <span>Professional portrait<br>coming soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── TRUST BAR ────────────────────────────────────────────── -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-inner">
+        <div class="trust-item">
+          <span class="trust-number">FIRV</span>
+          <span class="trust-label">Institute of Registered Valuers</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <span class="trust-number">30+</span>
+          <span class="trust-label">Years' Professional Experience</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <span class="trust-number">CPR</span>
+          <span class="trust-label">Part 35 Compliant Reports</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <span class="trust-number">100%</span>
+          <span class="trust-label">Independent — No Retail Affiliation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── WHAT IS AN EXPERT WITNESS ───────────────────────────── -->
+  <section class="section explainer">
+    <div class="container">
+      <div class="explainer-inner">
+        <div class="explainer-text">
+          <p class="section-eyebrow">Expert Witness</p>
+          <h2>The Role of an Expert<br>in Civil Proceedings</h2>
+          <p>
+            In civil litigation, an expert witness is appointed to provide the court with independent
+            specialist opinion that falls outside the ordinary competence of a judge or legal
+            practitioner. Unlike a witness of fact, an expert's duty runs not to the instructing
+            party but to the court itself.
+          </p>
+          <p>
+            In jewellery and horology disputes, an expert witness is called upon to establish
+            the nature, quality, and value of items in contention — whether to determine a
+            fair division of assets, assess an inheritance, or evaluate an insurance claim. The
+            credibility of that opinion depends entirely on the independence and qualifications
+            of the person providing it.
+          </p>
+          <p>
+            Gaynor Wright brings over thirty years of hands-on experience in the luxury
+            jewellery sector to every instruction. As a Fellow of the Institute of Registered
+            Valuers — the principal professional body for jewellery valuers in the United Kingdom
+            — and a Fellow of the National Association of Jewellers, her qualifications meet
+            the standard expected by the courts and relied upon by both sides of a dispute.
+          </p>
+        </div>
+        <div class="explainer-aside">
+          <h3>Why Independence Matters</h3>
+          <p>
+            A valuation produced by a jeweller with a commercial interest in the outcome, or
+            by a generalist without specialist credentials, will face challenge on
+            cross-examination. Courts and legal practitioners require a valuer whose
+            independence is demonstrable and whose methodology is sound.
+          </p>
+          <p>
+            Gaynor holds no retail affiliation, accepts no referral fees, and is instructed
+            equally by claimants, defendants, and as single joint expert. Her reports are
+            prepared without reference to who has retained her — and will withstand scrutiny
+            accordingly.
+          </p>
+          <div class="cpr-note">
+            <span class="cpr-note-icon">§</span>
+            <p>
+              All expert witness reports are prepared in compliance with CPR Part 35 and
+              the accompanying Practice Direction, including the mandatory expert's declaration
+              as to the overriding duty to the court.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── CASE TYPES ───────────────────────────────────────────── -->
+  <section class="section case-types" id="case-types">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Areas of Practice</p>
+        <h2 class="section-title">Cases Gaynor Is Instructed In</h2>
+      </div>
+      <div class="case-types-grid">
+
+        <div class="case-card">
+          <p class="case-type-label">Probate</p>
+          <h3>Probate Disputes</h3>
+          <p>
+            Where the value of jewellery or watches forms part of a contested estate, an
+            independent expert valuation provides the evidential basis for resolving
+            disagreements between beneficiaries, executors, and HMRC.
+          </p>
+          <ul class="case-card-features">
+            <li>Market-value assessments for HMRC compliance under the Inheritance Tax Act 1984</li>
+            <li>Itemised schedules suitable for estate administration and court disclosure</li>
+            <li>Co-ordination with solicitors and estate professionals as required</li>
+            <li>Instruction as single joint expert or by either party</li>
+          </ul>
+        </div>
+
+        <div class="case-card">
+          <p class="case-type-label">Family Division</p>
+          <h3>Divorce &amp; Financial Remedy</h3>
+          <p>
+            Jewellery and watches frequently appear as significant assets in financial
+            remedy proceedings. Gaynor provides impartial valuations accepted by the
+            Family Division and relied upon by both parties' legal teams.
+          </p>
+          <ul class="case-card-features">
+            <li>Open-market valuations for fair and defensible asset division</li>
+            <li>Reports suitable for use in consent orders and Form E schedules</li>
+            <li>Strictly independent — not affiliated to either party</li>
+            <li>Report format aligned with Family Court expectations</li>
+          </ul>
+        </div>
+
+        <div class="case-card">
+          <p class="case-type-label">Insurance</p>
+          <h3>Insurance Disputes &amp; Fraud</h3>
+          <p>
+            Insurance fraud investigations and disputed claims frequently require an
+            independent specialist to assess authenticity, provenance, and accurate
+            replacement value. Gaynor's reports provide the evidential foundation
+            insurers and their legal teams require.
+          </p>
+          <ul class="case-card-features">
+            <li>Authentication and identification of hallmarks, makers' marks, and materials</li>
+            <li>Replacement values at retail market level as appropriate</li>
+            <li>Assessment of provenance and supporting documentation</li>
+            <li>Instruction by insurers, loss adjusters, legal representatives, or private individuals</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── CREDENTIALS ──────────────────────────────────────────── -->
+  <section class="section credentials-section">
+    <div class="container">
+      <div class="credentials-inner">
+        <div>
+          <p class="section-eyebrow">Qualifications &amp; Standing</p>
+          <h2 style="margin-bottom: 2.5rem;">The Credentials<br>Behind the Opinion</h2>
+          <div class="credentials-list">
+
+            <div class="credential-item">
+              <div class="credential-mark">FIRV</div>
+              <div>
+                <strong>Fellow of the Institute of Registered Valuers</strong>
+                <p>
+                  The IRV is the principal professional body for jewellery valuers in the United
+                  Kingdom. Fellowship — the highest grade of membership — is conferred on those
+                  who meet its rigorous standards of competence and conduct. Gaynor holds
+                  FIRV Ref 96916.
+                </p>
+              </div>
+            </div>
+
+            <div class="credential-item">
+              <div class="credential-mark">FNAJ</div>
+              <div>
+                <strong>Fellow of the National Association of Jewellers</strong>
+                <p>
+                  Fellowship of the NAJ is awarded in recognition of sustained contribution to
+                  the jewellery profession. Gaynor also serves as IRV Advisors representative
+                  on the NAJ Education and Training Group.
+                </p>
+              </div>
+            </div>
+
+            <div class="credential-item">
+              <div class="credential-mark">GIA</div>
+              <div>
+                <strong>GIA Pearl Graduate</strong>
+                <p>
+                  A specialist qualification from the Gemological Institute of America,
+                  covering the identification, grading, and valuation of natural, cultured,
+                  and imitation pearls to international standards.
+                </p>
+              </div>
+            </div>
+
+            <div class="credential-item">
+              <div class="credential-mark">Gem-A</div>
+              <div>
+                <strong>Gem-A Member</strong>
+                <p>
+                  Member of the Gemmological Association of Great Britain, reflecting ongoing
+                  engagement with the science and practice of gemmology.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="credentials-profile">
+          <h3>Gaynor Wright</h3>
+          <p class="profile-title">FIRV 96916 · DGA · FNAJ · GIA Pearl Graduate · PJ Gemology Diploma · BA(hons) Jewellery Design · CPAA</p>
+          <p>
+            Prior to establishing GHW Valuations, Gaynor held a senior management position
+            at Tiffany &amp; Co., London — an environment that demands an uncompromising
+            standard of knowledge, presentation, and professional conduct.
+          </p>
+          <p>
+            Over more than thirty years in the luxury jewellery sector, she has developed
+            expertise spanning fine jewellery, coloured gemstones, pearls, and horological
+            pieces from Georgian pocket watches to contemporary prestige wristwatches.
+          </p>
+          <p>
+            Her valuations are relied upon by solicitors, insurers, executors, and private
+            clients throughout Cambridgeshire, Bedfordshire, Hertfordshire, and South
+            Lincolnshire. She is consistently fully booked, a reflection of the confidence
+            professionals and private individuals place in her work.
+          </p>
+          <div class="profile-badges">
+            <span class="profile-badge">FIRV · 96916</span>
+            <span class="profile-badge">FNAJ</span>
+            <span class="profile-badge">Gem-A</span>
+            <span class="profile-badge">SoJH</span>
+            <span class="profile-badge">30+ Years' Experience</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── PROCESS ──────────────────────────────────────────────── -->
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Instruction &amp; Process</p>
+        <h2 class="section-title">From Initial Enquiry to Expert Report</h2>
+      </div>
+      <div class="process-steps">
+
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h4>Initial Discussion</h4>
+          <p>
+            Outline your case, the nature of the items, and the purpose of the valuation
+            using the enquiry form. Gaynor will respond promptly to discuss scope, timing,
+            and fees.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h4>Examination of Items</h4>
+          <p>
+            Gaynor attends with her full portable laboratory to examine and record items
+            in person. Where items are held by a third party, arrangements can be made
+            accordingly.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h4>Report Preparation</h4>
+          <p>
+            A full written report is prepared in compliance with CPR Part 35, including
+            the expert's declaration. The report is clear, methodical, and structured
+            for use in legal proceedings.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h4>Delivery &amp; Follow-up</h4>
+          <p>
+            The completed report is delivered to the instructing solicitor. Gaynor is
+            available to clarify any points, respond to questions from the opposing party,
+            or attend as required.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── SOLICITOR ENQUIRY ────────────────────────────────────── -->
+  <section class="section solicitor-enquiry" id="enquiry">
+    <div class="container">
+      <div class="solicitor-inner">
+        <div>
+          <p class="section-eyebrow">Instructing Gaynor</p>
+          <h2>Discuss Your Case</h2>
+          <p>
+            If you are a solicitor, barrister, or legal professional seeking an independent
+            jewellery expert for civil proceedings, Gaynor welcomes your enquiry. She accepts
+            instruction from either party and as single joint expert.
+          </p>
+          <p>
+            To discuss whether she is the right expert for your case, please use the enquiry
+            form. There is no charge for an initial discussion of scope and suitability.
+          </p>
+          <p style="margin-top: 1.5rem;">
+            <a href="enquiries.html" class="btn btn-primary btn-large">Make an Enquiry</a>
+          </p>
+        </div>
+
+        <div class="enquiry-panel">
+          <h3>When You Get in Touch</h3>
+          <p class="panel-sub">
+            To allow Gaynor to advise on scope and suitability, it helps to have the following
+            information to hand — though none of it is required before making initial contact.
+          </p>
+          <ul class="enquiry-checklist">
+            <li>The type of proceedings — probate, financial remedy, or insurance</li>
+            <li>A brief description of the items in question</li>
+            <li>The purpose of the valuation — replacement, open-market, or probate</li>
+            <li>Whether instruction is by one party or as single joint expert</li>
+            <li>Any relevant deadlines for disclosure or court directions</li>
+            <li>The location of the items and any access considerations</li>
+          </ul>
+          <a href="enquiries.html" class="btn btn-ghost">Go to Enquiry Form →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── CTA BAND ─────────────────────────────────────────────── -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <h2>Ready to Discuss Your Case?</h2>
+          <p>
+            Initial enquiries are welcome from solicitors, legal professionals, and private clients.
+            No commitment required.
+          </p>
+        </div>
+        <a href="enquiries.html" class="btn btn-primary btn-large">Make an Enquiry</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <span class="logo-main">GHW Valuations</span>
+          <p>Independent Jewellery Valuer<br>St Neots, Cambridgeshire</p>
+          <p><a href="mailto:info@ghwvaluations.com">info@ghwvaluations.com</a></p>
+          <p><a href="tel:07871165687">07871 165687</a></p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Services</h4>
+          <a href="valuations.html">Jewellery Valuations</a>
+          <a href="expert-witness.html">Expert Witness</a>
+          <a href="tutoring.html">Tutoring &amp; Education</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Information</h4>
+          <a href="about.html">About Gaynor</a>
+          <a href="enquiries.html">Make an Enquiry</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+
+        <div class="footer-accreditations">
+          <h4>Accreditations</h4>
+          <div class="accreditation-badges">
+            <span class="badge">FIRV · 96916</span>
+            <span class="badge">FNAJ</span>
+            <span class="badge">Gem-A</span>
+            <span class="badge">SoJH</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="footer-base">
+        <p>© 2025 GHW Valuations. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ─── SCRIPTS ──────────────────────────────────────────────── -->
+  <script>
+    // Scrolled header
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav toggle
+    document.getElementById('nav-toggle').addEventListener('click', () => {
+      document.getElementById('site-nav').classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jewellery Valuations — GHW Valuations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Page hero (interior, shorter than homepage) ─────────── */
+    .page-hero {
+      position: relative;
+      padding: calc(var(--nav-h) + 5rem) 0 5rem;
+      background:
+        linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 55%, #3aafa640 100%),
+        radial-gradient(ellipse at 75% 50%, rgba(201,169,110,0.18) 0%, transparent 60%);
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+    .page-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+    }
+    .page-hero .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 1rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+    }
+    .page-hero h1 { color: var(--white); font-weight: 400; margin-bottom: 1.25rem; }
+    .page-hero .hero-body {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.82);
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+    .page-hero .breadcrumb {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em;
+      margin-bottom: 1.5rem;
+    }
+    .page-hero .breadcrumb a { color: rgba(255,255,255,0.55); }
+    .page-hero .breadcrumb a:hover { color: var(--champagne); }
+    .page-hero .breadcrumb span { margin: 0 0.4em; opacity: 0.4; }
+
+    /* ── Service types grid ───────────────────────────────────── */
+    .valuation-types { background: var(--off-white); }
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .type-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2.25rem;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .type-card:hover {
+      border-color: var(--teal-mid);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .type-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+    .type-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--teal-pale);
+      border: 1px solid var(--teal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      color: var(--teal);
+    }
+    .type-card h3 {
+      font-size: 1.35rem;
+      color: var(--text-dark);
+      margin-bottom: 0.2rem;
+    }
+    .type-card .type-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--champagne);
+      font-weight: 500;
+    }
+    .type-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin: 0;
+    }
+    .type-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .type-card ul li {
+      font-size: 0.875rem;
+      color: var(--text-mid);
+      padding-left: 1.25rem;
+      position: relative;
+    }
+    .type-card ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+    }
+
+    /* ── Process section ─────────────────────────────────────── */
+    .process-section { background: var(--champ-pale); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(12.5% + 28px);
+      right: calc(12.5% + 28px);
+      height: 1px;
+      background: var(--border-mid);
+      z-index: 0;
+    }
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .step-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--teal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--teal);
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .process-step h4 {
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 0.35rem;
+    }
+    .process-step p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ── What's included panel ───────────────────────────────── */
+    .included-section { background: var(--white); }
+    .included-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .included-text h2 { margin-bottom: 1.5rem; }
+    .included-text p { color: var(--text-mid); font-size: 0.95rem; margin-bottom: 1rem; }
+    .report-visual {
+      background: var(--teal-pale);
+      border: 1px solid var(--teal-light);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .report-visual-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--teal-dark);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .report-visual-title::before {
+      content: '⬡';
+      color: var(--champagne);
+      font-size: 1rem;
+    }
+    .report-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .report-feature {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+    }
+    .rf-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .report-feature span { font-size: 0.875rem; color: var(--text-mid); line-height: 1.55; }
+    .report-feature strong { color: var(--text-dark); font-weight: 500; }
+    .two-copies-badge {
+      background: var(--white);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .two-copies-badge .badge-icon { font-size: 1.5rem; line-height: 1; }
+    .two-copies-badge p { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+    .two-copies-badge strong { display: block; font-size: 0.88rem; color: var(--text-dark); margin-bottom: 0.15rem; }
+
+    /* ── Fees section ─────────────────────────────────────────── */
+    .fees-section { background: var(--off-white); }
+    .fees-intro {
+      max-width: 560px;
+      margin: 0 auto 3.5rem;
+      text-align: center;
+    }
+    .fees-intro p { font-size: 0.95rem; color: var(--text-muted); }
+    .fees-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .fee-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+    .fee-card:hover { border-color: var(--teal-mid); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .fee-card.featured {
+      border-color: var(--teal);
+      background: linear-gradient(160deg, var(--teal-pale) 0%, var(--white) 100%);
+      position: relative;
+    }
+    .fee-card.featured::before {
+      content: 'Most common';
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--teal);
+      color: var(--white);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 0.25rem 0.85rem;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    }
+    .fee-range {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .fee-unit {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .fee-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+    .fee-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .fees-note {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .fees-note a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ── Coverage section ─────────────────────────────────────── */
+    .coverage-section { background: var(--teal-dark); padding: 5rem 0; }
+    .coverage-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .coverage-text .section-eyebrow { color: var(--champagne); }
+    .coverage-text h2 { color: var(--white); margin-bottom: 1.25rem; }
+    .coverage-text p { color: rgba(255,255,255,0.75); font-size: 0.95rem; }
+    .coverage-counties {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+    }
+    .county-pill {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .county-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--champagne);
+      flex-shrink: 0;
+    }
+    .county-pill span { font-size: 0.88rem; color: rgba(255,255,255,0.85); font-weight: 400; }
+    .coverage-note {
+      margin-top: 1.5rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      font-style: italic;
+    }
+
+    /* ── Watches section ─────────────────────────────────────── */
+    .watches-section { background: var(--champ-pale); }
+    .watches-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .watches-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .watch-feature {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .watch-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--champ-light);
+      border: 1px solid rgba(201,169,110,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .watch-feature strong { display: block; font-size: 0.95rem; color: var(--text-dark); margin-bottom: 0.25rem; }
+    .watch-feature p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+    .watches-aside {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin-top: 0.5rem;
+    }
+    .watches-aside h4 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-dark); }
+    .watches-aside ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .watches-aside ul li {
+      font-size: 0.875rem;
+      color: var(--text-mid);
+      padding-left: 1.25rem;
+      position: relative;
+    }
+    .watches-aside ul li::before {
+      content: '⬡';
+      position: absolute;
+      left: 0;
+      font-size: 0.6rem;
+      color: var(--champagne);
+      top: 3px;
+    }
+    .watches-aside .aside-note {
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      font-style: italic;
+    }
+
+    /* ── Responsive overrides ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      .types-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .process-steps::before { display: none; }
+      .included-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .fees-grid { grid-template-columns: 1fr; }
+      .coverage-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .coverage-counties { grid-template-columns: 1fr 1fr; }
+      .watches-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 600px) {
+      .process-steps { grid-template-columns: 1fr; }
+      .coverage-counties { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HEADER ─────────────────────────────────────────────── -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <nav class="nav-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-main">GHW <span style="color: var(--champagne);">Valuations</span></span>
+          <span class="logo-sub">Gaynor Wright FIRV · FNAJ</span>
+        </a>
+        <div class="site-nav" id="site-nav">
+          <a href="valuations.html" style="color: var(--champagne);">Valuations</a>
+          <a href="expert-witness.html">Expert Witness</a>
+          <a href="tutoring.html">Tutoring</a>
+          <a href="about.html">About</a>
+          <a href="enquiries.html" class="nav-cta">Make an Enquiry</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ─── PAGE HERO ──────────────────────────────────────────── -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <p class="breadcrumb"><a href="index.html">Home</a><span>/</span>Jewellery Valuations</p>
+        <p class="hero-eyebrow">Court-admissible · Fully independent · Delivered to your door</p>
+        <h1>Jewellery Valuations<br>You Can <em style="color: var(--champagne); font-style: normal;">Rely On</em></h1>
+        <p class="hero-body">Professional, court-admissible valuation schedules for Insurance, Probate, Division of Assets, Family Division, and horology — conducted in your home or via your jeweller, anywhere across four counties.</p>
+        <div class="hero-actions">
+          <a href="enquiries.html" class="btn btn-primary btn-large" style="background: var(--champagne);">Make an Enquiry</a>
+          <a href="#process" class="btn btn-ghost btn-large">How It Works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICE TYPES ──────────────────────────────────────── -->
+  <section class="section valuation-types">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Valuation Types</p>
+        <h2 class="section-title">Services Offered</h2>
+      </div>
+      <div class="types-grid">
+
+        <div class="type-card">
+          <div class="type-card-header">
+            <div class="type-icon">⊕</div>
+            <div>
+              <div class="type-tag">Insurance</div>
+              <h3>Insurance Valuations</h3>
+            </div>
+          </div>
+          <p>Accurate replacement-value schedules prepared to the standard required by insurers. Essential for high-value jewellery, family heirlooms, and inherited pieces — ensuring your cover reflects today's market prices.</p>
+          <ul>
+            <li>Individual item descriptions and replacement values</li>
+            <li>Photographs of each piece in the report</li>
+            <li>Accepted by all major UK insurers</li>
+            <li>Recommended for review every three to five years</li>
+          </ul>
+        </div>
+
+        <div class="type-card">
+          <div class="type-card-header">
+            <div class="type-icon">⊜</div>
+            <div>
+              <div class="type-tag">Probate</div>
+              <h3>Probate Valuations</h3>
+            </div>
+          </div>
+          <p>Market-value assessments for HMRC probate purposes, prepared in accordance with the Inheritance Tax Act 1984. Gaynor works sensitively with families and estate professionals at what is often a difficult time.</p>
+          <ul>
+            <li>Open-market valuations for HMRC compliance</li>
+            <li>Itemised schedules suitable for estate administration</li>
+            <li>Co-ordination with solicitors and executors where required</li>
+            <li>Discreet home visits arranged at a time that suits you</li>
+          </ul>
+        </div>
+
+        <div class="type-card">
+          <div class="type-card-header">
+            <div class="type-icon">⊛</div>
+            <div>
+              <div class="type-tag">Family Division</div>
+              <h3>Division of Assets &amp; Family Division</h3>
+            </div>
+          </div>
+          <p>Independent, impartial valuations for matrimonial and financial remedy proceedings. Gaynor's court-admissible reports are accepted by the Family Division and relied upon by both parties' legal teams.</p>
+          <ul>
+            <li>Open-market values for fair asset division</li>
+            <li>Suitable for use in consent orders and Form E schedules</li>
+            <li>Strictly independent — no affiliation to either party</li>
+            <li>Report format aligned with family court expectations</li>
+          </ul>
+        </div>
+
+        <div class="type-card">
+          <div class="type-card-header">
+            <div class="type-icon">⊙</div>
+            <div>
+              <div class="type-tag">Horology</div>
+              <h3>Watches &amp; Horology</h3>
+            </div>
+          </div>
+          <p>Specialist valuations for watches and horological pieces across all purposes — insurance, probate, or division of assets. Gaynor's expertise covers both antique pocket watches and contemporary luxury timepieces.</p>
+          <ul>
+            <li>Luxury and prestige marques: Rolex, Patek Philippe, Cartier, and others</li>
+            <li>Antique and vintage pocket watches</li>
+            <li>Dress watches and decorative timepieces</li>
+            <li>Values cross-referenced against current auction and retail markets</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS ────────────────────────────────────────────── -->
+  <section class="section process-section" id="process">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">How It Works</p>
+        <h2 class="section-title">From Enquiry to Report</h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div>
+            <h4>Get in Touch</h4>
+            <p>Describe your items and requirements using the enquiry form. Gaynor will respond promptly to discuss the best approach.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div>
+            <h4>Home Visit</h4>
+            <p>Gaynor visits your home or an agreed office — no need to travel or post items.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div>
+            <h4>Examination</h4>
+            <p>Each piece is examined using professional gemmological equipment. Gaynor takes photographs and records all relevant details.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <div>
+            <h4>Report Delivery</h4>
+            <p>Two professional printed reports with photographs delivered within an agreed timeframe. Court-admissible and insurer-accepted.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHAT'S INCLUDED ─────────────────────────────────────── -->
+  <section class="section included-section">
+    <div class="container">
+      <div class="included-inner">
+        <div class="included-text">
+          <p class="section-eyebrow">What You Receive</p>
+          <h2>Two Bound Reports,<br>Delivered to You</h2>
+          <p>Two professionally produced schedules, printed with photographs and presented to the standard expected by insurers, solicitors, and the courts.</p>
+          <p>One copy is for your own records. The second is ready to hand directly to your insurer, solicitor, or the court.</p>
+          <p>Gaynor carries her full portable set of gemmological testing and grading equipment, refractometer, gauges, measuring kit and light box, so no items need leave your possession. Research is completed after the visit is conducted.</p>
+          <a href="enquiries.html" class="btn btn-primary" style="margin-top: 1.5rem;">Arrange a Valuation</a>
+        </div>
+        <div>
+          <div class="report-visual">
+            <div class="report-visual-title">Included in Every Report</div>
+            <div class="report-features">
+              <div class="report-feature">
+                <div class="rf-check">✓</div>
+                <span><strong>Full item descriptions</strong> — stones identified, measured and graded, metals tested, makers and quality noted, condition considered</span>
+              </div>
+              <div class="report-feature">
+                <div class="rf-check">✓</div>
+                <span><strong>Quality digital photographs</strong> supplied with each copy of the schedule</span>
+              </div>
+              <div class="report-feature">
+                <div class="rf-check">✓</div>
+                <span><strong>Stated purpose and basis of value</strong> — replacement, open-market, or probate as appropriate</span>
+              </div>
+              <div class="report-feature">
+                <div class="rf-check">✓</div>
+                <span><strong>Valuer's declaration and post nominals</strong> — identifying qualifications achieved</span>
+              </div>
+            </div>
+            <div class="two-copies-badge">
+              <div class="badge-icon">📋</div>
+              <div>
+                <strong>Two bound copies as standard</strong>
+                <p>One for your records. One for your insurer, solicitor, or the court.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEES ────────────────────────────────────────────────── -->
+  <section class="section fees-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Fees</p>
+        <h2 class="section-title">Per-Item Fee Structure</h2>
+      </div>
+      <div class="fees-intro">
+        <p>Fees are charged per item valued and vary according to complexity. An initial discussion at no charge will allow Gaynor to advise on the likely cost before any commitment is made.</p>
+      </div>
+      <div class="fees-grid">
+        <div class="fee-card">
+          <div class="fee-range">£35–55</div>
+          <div class="fee-unit">per item</div>
+          <h4>Standard Jewellery</h4>
+          <p>Rings, pendants, bracelets, earrings, and brooches without complex gem-setting or unusual provenance.</p>
+        </div>
+        <div class="fee-card featured">
+          <div class="fee-range">£55–85</div>
+          <div class="fee-unit">per item</div>
+          <h4>Gem-Set &amp; Complex Pieces</h4>
+          <p>Diamonds, coloured gemstones, multi-stone pieces, signed or designer jewellery, and pieces requiring research.</p>
+        </div>
+        <div class="fee-card">
+          <div class="fee-range">£65–120</div>
+          <div class="fee-unit">per item</div>
+          <h4>Watches &amp; Horology</h4>
+          <p>Luxury, antique, and vintage timepieces. Includes reference to current auction and grey-market data.</p>
+        </div>
+      </div>
+      <p class="fees-note">A travel supplement may apply for appointments beyond 45 minutes from St Neots. A minimum visit fee applies where fewer than four items are presented. <a href="enquiries.html">Contact Gaynor</a> for a no-obligation discussion of your requirements.</p>
+    </div>
+  </section>
+
+  <!-- ─── COVERAGE ────────────────────────────────────────────── -->
+  <section class="coverage-section">
+    <div class="container">
+      <div class="coverage-inner">
+        <div class="coverage-text">
+          <p class="section-eyebrow">Coverage Area</p>
+          <h2>Four Counties,<br>Within Reach</h2>
+          <p>Gaynor covers Cambridgeshire, Bedfordshire, Hertfordshire, and South Lincolnshire — visiting private clients at home and bi-weekly visits to retail jewellers throughout the area.</p>
+          <p>All appointments are within 1.5 hours of St Neots. If you are unsure whether your location falls within the area, please get in touch — Gaynor will be happy to advise.</p>
+          <p class="coverage-note">Occasional visits outside the core area may be possible by arrangement.</p>
+        </div>
+        <div class="coverage-counties">
+          <div class="county-pill">
+            <div class="county-dot"></div>
+            <span>Cambridgeshire</span>
+          </div>
+          <div class="county-pill">
+            <div class="county-dot"></div>
+            <span>Bedfordshire</span>
+          </div>
+          <div class="county-pill">
+            <div class="county-dot"></div>
+            <span>Hertfordshire</span>
+          </div>
+          <div class="county-pill">
+            <div class="county-dot"></div>
+            <span>South Lincolnshire</span>
+          </div>
+          <div class="county-pill" style="grid-column: span 2; justify-content: center;">
+            <div class="county-dot" style="background: rgba(255,255,255,0.35);"></div>
+            <span style="color: rgba(255,255,255,0.5); font-style: italic; font-size: 0.82rem;">Within 1.5 hours of St Neots</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WATCHES DETAIL ──────────────────────────────────────── -->
+  <section class="section watches-section">
+    <div class="container">
+      <div class="watches-inner">
+        <div>
+          <p class="section-eyebrow">Horology</p>
+          <h2>Watch &amp; Clock<br>Valuations</h2>
+          <p style="color: var(--text-mid); font-size: 0.95rem; margin-bottom: 0.5rem;">Gaynor's horological knowledge spans several centuries of watchmaking — from Georgian and Victorian pocket watches to contemporary luxury wristwatches from the world's leading marques.</p>
+          <p style="color: var(--text-mid); font-size: 0.95rem;">Each horological valuation is cross-referenced against current auction results, grey-market pricing, and manufacturer retail data to ensure the figure accurately reflects the present market.</p>
+          <div class="watches-features">
+            <div class="watch-feature">
+              <div class="watch-icon">⌚</div>
+              <div>
+                <strong>Luxury wristwatches</strong>
+                <p>Rolex, Patek Philippe, Audemars Piguet, Cartier, IWC, and other prestige marques valued to current market.</p>
+              </div>
+            </div>
+            <div class="watch-feature">
+              <div class="watch-icon">🕰</div>
+              <div>
+                <strong>Antique &amp; vintage pieces</strong>
+                <p>Georgian and Victorian pocket watches, dress watches, and decorative timepieces with full provenance consideration.</p>
+              </div>
+            </div>
+            <div class="watch-feature">
+              <div class="watch-icon">📄</div>
+              <div>
+                <strong>Documentation review</strong>
+                <p>Service papers, original boxes, and accompanying certificates considered as part of each valuation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="watches-aside">
+          <h4>What to Have Ready</h4>
+          <ul>
+            <li>The watch or timepiece itself</li>
+            <li>Original box and papers if available</li>
+            <li>Any service receipts or records</li>
+            <li>Previous valuations or purchase receipts</li>
+            <li>Warranty cards and accompanying literature</li>
+          </ul>
+          <p class="aside-note">Having documentation to hand can support a more precise valuation, though a thorough assessment is always carried out regardless of what paperwork accompanies a piece.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ────────────────────────────────────────── -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Client Reviews</p>
+        <h2 class="section-title">What Clients Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>"From the first friendly contact to receipt of the official valuations this was such an easy, punctual, meticulous process. Gaynor literally brought her lab and her skills to our home."</blockquote>
+          <cite>Peter, Cambridgeshire</cite>
+          <span class="review-type">Insurance Valuation</span>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Gaynor was extremely helpful and worked in a very professional and competent manner. Our report was nicely presented and comprehensive. We would have no hesitation in recommending Gaynor."</blockquote>
+          <cite>Jude, Cambridge</cite>
+          <span class="review-type">Probate Valuation</span>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>"I found her to be extremely professional. A very comprehensive and well-presented report with photographs arrived just two days after my visit."</blockquote>
+          <cite>Amanda, Bedford</cite>
+          <span class="review-type">Insurance Valuation</span>
+        </div>
+      </div>
+      <p class="testimonials-footer">14 verified five-star reviews on Jewellery Appraisers of the World</p>
+    </div>
+  </section>
+
+  <!-- ─── CTA BAND ─────────────────────────────────────────────── -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <h2>Ready to arrange a valuation?</h2>
+          <p>Describe your requirements and Gaynor will be in touch to discuss how she can help.</p>
+        </div>
+        <a href="enquiries.html" class="btn btn-primary btn-large">Make an Enquiry</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-main">GHW Valuations</span>
+          <p>Independent Jewellery Valuer<br>St Neots, Cambridgeshire</p>
+          <p><a href="mailto:info@ghwvaluations.com">info@ghwvaluations.com</a></p>
+          <p><a href="tel:07871165687">07871 165687</a></p>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <a href="valuations.html">Jewellery Valuations</a>
+          <a href="expert-witness.html">Expert Witness</a>
+          <a href="tutoring.html">Tutoring &amp; Education</a>
+        </div>
+        <div class="footer-links">
+          <h4>Information</h4>
+          <a href="about.html">About Gaynor</a>
+          <a href="enquiries.html">Make an Enquiry</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="footer-accreditations">
+          <h4>Accreditations</h4>
+          <div class="accreditation-badges">
+            <span class="badge">FIRV · 96916</span>
+            <span class="badge">FNAJ</span>
+            <span class="badge">Gem-A</span>
+            <span class="badge">SoJH</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p>© 2025 GHW Valuations. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    });
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('site-nav');
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+
+</body>
+</html>

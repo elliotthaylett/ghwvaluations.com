@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutoring &amp; Education — GHW Valuations</title>
+  <meta name="description" content="Specialist tuition for the NAJ Foundations of Appraisal Practice programme and BCU valuation students. Gaynor Wright FIRV is one of only two UK Quality Assurance providers for FoAP." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ─── PAGE-SPECIFIC: TUTORING ─────────────────────────────── */
+
+    .page-hero {
+      position: relative;
+      padding: calc(var(--nav-h) + 5rem) 0 5rem;
+      background:
+        linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 55%, #3aafa640 100%),
+        radial-gradient(ellipse at 75% 50%, rgba(201,169,110,0.18) 0%, transparent 60%);
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+    .page-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+    }
+    .page-hero .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 1rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+    }
+    .page-hero h1 { color: var(--white); font-weight: 400; margin-bottom: 1.25rem; }
+    .page-hero .hero-body {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.82);
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+    .page-hero .hero-sub {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.72);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+    .page-hero .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .page-hero .hero-credentials {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.75rem;
+      align-items: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      font-family: var(--font-body);
+      letter-spacing: 0.04em;
+    }
+    .page-hero .hero-credentials .divider { opacity: 0.3; }
+    .page-hero .breadcrumb {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em;
+      margin-bottom: 1.5rem;
+    }
+    .page-hero .breadcrumb a { color: rgba(255,255,255,0.55); }
+    .page-hero .breadcrumb a:hover { color: var(--champagne); }
+    .page-hero .breadcrumb span { margin: 0 0.4em; opacity: 0.4; }
+
+    /* ─── STATS BAR ───────────────────────────────────────────── */
+    .stats-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-inner {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 3rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ─── ABOUT THIS SERVICE ──────────────────────────────────── */
+    .about-section { background: var(--off-white); }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-text h2 { margin-bottom: 1.5rem; }
+    .about-text p { color: var(--text-mid); font-size: 0.95rem; line-height: 1.85; margin-bottom: 1rem; }
+    .about-aside {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--champagne);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+    }
+    .about-aside h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-dark);
+    }
+    .provides-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .provides-item {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+      font-size: 0.875rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .provides-item::before {
+      content: '–';
+      color: var(--teal);
+      font-weight: 500;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ─── THREE ROLES ─────────────────────────────────────────── */
+    .roles-section { background: var(--white); }
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .role-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      transition: all 0.25s ease;
+    }
+    .role-card:hover {
+      border-color: var(--teal-mid);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .role-icon {
+      font-size: 1.5rem;
+      color: var(--champagne);
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+    .role-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 0.5rem;
+    }
+    .role-card h3 { font-size: 1.35rem; margin-bottom: 0.9rem; }
+    .role-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; margin: 0; }
+
+    /* ─── TWO AUDIENCES ───────────────────────────────────────── */
+    .audiences-section { background: var(--off-white); }
+    .audiences-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .audience-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2.25rem;
+    }
+    .audience-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 0.5rem;
+    }
+    .audience-card h3 { font-size: 1.45rem; margin-bottom: 0.9rem; }
+    .audience-card > p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.5rem; }
+    .audience-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .audience-features li {
+      font-size: 0.875rem;
+      color: var(--text-mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.5;
+    }
+    .audience-features li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    /* ─── CREDENTIALS ─────────────────────────────────────────── */
+    .credentials-section { background: var(--white); }
+    .credentials-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .credentials-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+    .credential-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .credential-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      letter-spacing: 0.03em;
+      text-align: center;
+    }
+    .credential-item strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      color: var(--text-dark);
+    }
+    .credential-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* ─── QUOTE BAND ──────────────────────────────────────────── */
+    .quote-band {
+      background: var(--teal-dark);
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .quote-band blockquote {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-style: italic;
+      color: var(--white);
+      font-weight: 400;
+      max-width: 760px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.55;
+    }
+    .quote-band .quote-attr {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--champagne);
+    }
+    .quote-years {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.06);
+      line-height: 1;
+      margin-bottom: 2rem;
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .about-inner,
+      .credentials-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .roles-grid { grid-template-columns: 1fr; }
+      .audiences-grid { grid-template-columns: 1fr; }
+      .stat-item { padding: 1.5rem 2rem; }
+    }
+    @media (max-width: 600px) {
+      .stats-inner { flex-wrap: wrap; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); width: 50%; }
+      .quote-band blockquote { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─── HEADER ──────────────────────────────────────────────── -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <nav class="nav-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-main">GHW <span style="color: var(--champagne);">Valuations</span></span>
+          <span class="logo-sub">Gaynor Wright FIRV · FNAJ</span>
+        </a>
+        <div class="site-nav" id="site-nav">
+          <a href="valuations.html">Valuations</a>
+          <a href="expert-witness.html">Expert Witness</a>
+          <a href="tutoring.html" style="color: var(--champagne);">Tutoring</a>
+          <a href="about.html">About</a>
+          <a href="enquiries.html" class="nav-cta">Make an Enquiry</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ─── HERO ────────────────────────────────────────────────── -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <p class="breadcrumb"><a href="index.html">Home</a><span>/</span>Tutoring &amp; Education</p>
+        <p class="hero-eyebrow">Teaching &amp; Quality Assurance</p>
+        <h1>Passing on Thirty Years<br>of <em style="color: var(--champagne); font-style: normal;">Expertise</em></h1>
+        <p class="hero-body">Specialist tutor for the NAJ Foundations of Appraisal Practice programme, BCU valuation students, and continuing professional development — delivered by one of only two UK Quality Assurance providers for FoAP.</p>
+        <p class="hero-sub">The representative for UK IRVs on the NAJ Education and Training Panel.</p>
+        <p class="hero-sub">Presenter and tutor for Practical Valuation Techniques.</p>
+        <div class="hero-actions">
+          <a href="enquiries.html" class="btn btn-primary btn-large">Make an Enquiry</a>
+          <a href="#roles" class="btn btn-ghost btn-large">Who It's For</a>
+        </div>
+        <div class="hero-credentials">
+          <span>FIRV · Ref 96916</span>
+          <span class="divider">·</span>
+          <span>FNAJ</span>
+          <span class="divider">·</span>
+          <span>NAJ Education &amp; Training Group</span>
+          <span class="divider">·</span>
+          <span>30+ Years' Experience</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── STATS BAR ────────────────────────────────────────────── -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <span class="stat-number">2</span>
+          <span class="stat-label">UK FoAP QA Providers</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">30+</span>
+          <span class="stat-label">Years' Industry Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">BCU</span>
+          <span class="stat-label">University Collaboration</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">NAJ</span>
+          <span class="stat-label">Education &amp; Training Group</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── ABOUT THIS SERVICE ───────────────────────────────────── -->
+  <section class="section about-section">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-text">
+          <p class="section-eyebrow">About This Service</p>
+          <h2>Teaching Valuation to<br>the Highest Standard</h2>
+          <p>The NAJ Foundations of Appraisal Practice programme is the professional qualification for jewellery valuers in the United Kingdom. It is rigorous, vocational, and nationally recognised — and Gaynor Wright is one of only two professionals in the country entrusted with Quality Assurance of its coursework.</p>
+          <p>That position is not a formal title alone. It means that Gaynor reviews, assesses, and upholds the standard of every piece of submitted work against the national benchmark — ensuring that those who complete the qualification genuinely meet the demands of professional practice.</p>
+          <p>Alongside this, Gaynor collaborates with Birmingham City University to support students undertaking professional valuation studies, and serves as IRV Advisors representative on the NAJ Education and Training Group — the body that shapes the curriculum and professional standards for the valuation sector in the UK.</p>
+        </div>
+        <div class="about-aside">
+          <p class="section-eyebrow">At a Glance</p>
+          <h3>What Gaynor Provides</h3>
+          <div class="provides-list">
+            <div class="provides-item">One-to-one and small-group tuition for NAJ FoAP students</div>
+            <div class="provides-item">Quality Assurance review of FoAP coursework — one of only two providers in the UK</div>
+            <div class="provides-item">Mentoring and assessment for Birmingham City University valuation students</div>
+            <div class="provides-item">IRV Advisors representation on the NAJ Education and Training Group</div>
+            <div class="provides-item">Guidance grounded in 30+ years of hands-on professional experience</div>
+            <div class="provides-item">Continuing professional development for practising valuers</div>
+            <div class="provides-item">Consultancy for institutions and industry bodies on valuation education standards</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── THREE ROLES ──────────────────────────────────────────── -->
+  <section class="section roles-section" id="roles">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Areas of Involvement</p>
+        <h2 class="section-title">Three Distinct Roles</h2>
+      </div>
+      <div class="roles-grid">
+
+        <div class="role-card">
+          <div class="role-icon">⊕</div>
+          <p class="role-tag">Student-Facing</p>
+          <h3>NAJ FoAP Tuition</h3>
+          <p>The Foundations of Appraisal Practice programme is the principal professional qualification for jewellery valuers in the UK. Gaynor provides specialist tuition to students working towards FoAP, drawing on decades of practical valuation experience across insurance, probate, and family division work to bring the curriculum to life.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-icon">⊙</div>
+          <p class="role-tag">National Standards</p>
+          <h3>Quality Assurance</h3>
+          <p>As one of only two QA providers for FoAP coursework in the United Kingdom, Gaynor plays a central role in maintaining the national standard of the qualification. She reviews submitted work, benchmarks it against the programme's requirements, and ensures that the credential means what it should.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-icon">⬡</div>
+          <p class="role-tag">University &amp; Industry</p>
+          <h3>BCU &amp; Institutional Collaboration</h3>
+          <p>Gaynor collaborates with Birmingham City University to mentor and assess students undertaking professional valuation studies. She also serves as IRV Advisors representative on the NAJ Education and Training Group — contributing to the development of policy, curriculum, and professional standards at a national level.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── TWO AUDIENCES ────────────────────────────────────────── -->
+  <section class="section audiences-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Who Gaynor Works With</p>
+        <h2 class="section-title">Two Audiences, One Standard</h2>
+      </div>
+      <div class="audiences-grid">
+
+        <div class="audience-card">
+          <p class="audience-label">For Students</p>
+          <h3>Aspiring &amp; Practising Valuers</h3>
+          <p>Whether you are considering the FoAP qualification for the first time or working through the programme, Gaynor's tuition provides the kind of grounded, practical guidance that textbooks alone cannot offer. She has navigated the same professional landscape for over thirty years.</p>
+          <ul class="audience-features">
+            <li>Guidance on the FoAP programme structure and requirements</li>
+            <li>Coursework support and feedback ahead of submission</li>
+            <li>Practical valuation methodology across jewellery, gemstones, and horology</li>
+            <li>Understanding of legal and professional standards — insurance, probate, Family Division</li>
+            <li>CPD support for qualified valuers looking to deepen their expertise</li>
+          </ul>
+        </div>
+
+        <div class="audience-card">
+          <p class="audience-label">For Institutions</p>
+          <h3>Industry Bodies &amp; Educators</h3>
+          <p>Gaynor's roles within the NAJ and BCU demonstrate her standing as a trusted partner for organisations that need to maintain rigorous educational standards. She is experienced in collaborative, institutional settings and accustomed to working within professional frameworks.</p>
+          <ul class="audience-features">
+            <li>Quality Assurance review of valuation coursework and assessments</li>
+            <li>External examination and moderation services</li>
+            <li>Curriculum development and standards consultation</li>
+            <li>Mentoring programmes for students and newly qualified valuers</li>
+            <li>Representation and advisory roles for professional bodies</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── CREDENTIALS ──────────────────────────────────────────── -->
+  <section class="section credentials-section">
+    <div class="container">
+      <div class="credentials-inner">
+        <div>
+          <p class="section-eyebrow">Credentials</p>
+          <h2 style="margin-bottom: 2.5rem;">Qualifications That<br>Underpin the Teaching</h2>
+          <div class="credentials-list">
+
+            <div class="credential-item">
+              <div class="credential-mark">FIRV</div>
+              <div>
+                <strong>Fellow of the Institute of Registered Valuers</strong>
+                <p>The IRV is the principal professional body for jewellery valuers in the United Kingdom. Fellowship — the highest grade of membership — is conferred on those who meet its rigorous standards of competence and conduct. Gaynor holds FIRV Ref 96916.</p>
+              </div>
+            </div>
+
+            <div class="credential-item">
+              <div class="credential-mark">FNAJ</div>
+              <div>
+                <strong>Fellow of the National Association of Jewellers</strong>
+                <p>Awarded in recognition of sustained contribution to the jewellery profession. Gaynor serves as IRV Advisors representative on the NAJ Education and Training Group.</p>
+              </div>
+            </div>
+
+            <div class="credential-item">
+              <div class="credential-mark">GIA</div>
+              <div>
+                <strong>GIA Pearl Graduate</strong>
+                <p>A specialist qualification from the Gemological Institute of America in the identification, grading, and valuation of natural, cultured, and imitation pearls to international standards.</p>
+              </div>
+            </div>
+
+            <div class="credential-item">
+              <div class="credential-mark">Gem-A</div>
+              <div>
+                <strong>Member of the Gemmological Association of Great Britain</strong>
+                <p>Reflecting ongoing engagement with the science and practice of gemmology, and commitment to maintaining knowledge at the frontier of the field.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div>
+          <p class="section-eyebrow">Why Experience Matters in Teaching</p>
+          <h2 style="margin-bottom: 1.5rem;">Learning from Someone<br>Who Has Done It</h2>
+          <p style="color: var(--text-mid); font-size: 0.95rem; line-height: 1.85; margin-bottom: 1rem;">There is a meaningful difference between someone who has studied valuation theory and someone who has spent three decades applying it. Gaynor's teaching is rooted in the realities of professional practice — the edge cases, the difficult client conversations, the pieces that do not fit neatly into a category, and the judgement that comes only with time.</p>
+          <p style="color: var(--text-mid); font-size: 0.95rem; line-height: 1.85; margin-bottom: 1rem;">Prior to establishing GHW Valuations, Gaynor held a senior management position at Tiffany &amp; Co., London — an environment that demands an uncompromising standard of knowledge, presentation, and professional conduct. That background informs both her valuation work and her teaching.</p>
+          <h3 style="font-size: 1.1rem; margin: 1.75rem 0 0.65rem; color: var(--text-dark);">What Students Gain</h3>
+          <p style="color: var(--text-mid); font-size: 0.95rem; line-height: 1.85; margin-bottom: 1rem;">Beyond the curriculum, Gaynor helps students understand what professional valuation practice actually looks like: how reports are structured for different purposes, what solicitors and insurers expect, how to handle pieces with uncertain provenance, and how to defend a valuation opinion under scrutiny.</p>
+          <h3 style="font-size: 1.1rem; margin: 1.75rem 0 0.65rem; color: var(--text-dark);">The NAJ FoAP Programme</h3>
+          <p style="color: var(--text-mid); font-size: 0.95rem; line-height: 1.85;">The Foundations of Appraisal Practice qualification is delivered by the National Association of Jewellers and represents the recognised standard for professional jewellery valuers in the UK. Completion of FoAP demonstrates both technical competence and an understanding of the professional obligations that come with the role. Gaynor's involvement — as both tutor and Quality Assurance provider — means she understands every aspect of what the programme demands, and how to help students meet those demands.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── QUOTE BAND ────────────────────────────────────────────── -->
+  <section class="quote-band">
+    <div class="container">
+      <div class="quote-years">30+</div>
+      <blockquote>"The greatest resource I can offer a student is not a textbook — it is thirty years of having sat across the table from the items themselves."</blockquote>
+      <p class="quote-attr">Gaynor Wright FIRV · FNAJ</p>
+    </div>
+  </section>
+
+
+  <!-- ─── CTA BAND ──────────────────────────────────────────────── -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <h2>Ready to Make an Enquiry?</h2>
+          <p>Whether you are a student considering the FoAP programme, or an institution seeking a tutor or QA consultant, Gaynor welcomes your enquiry. There is no charge for an initial discussion.</p>
+        </div>
+        <a href="enquiries.html" class="btn btn-primary btn-large">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <span class="logo-main">GHW Valuations</span>
+          <p>Independent Jewellery Valuer<br>St Neots, Cambridgeshire</p>
+          <p><a href="mailto:info@ghwvaluations.com">info@ghwvaluations.com</a></p>
+          <p><a href="tel:07871165687">07871 165687</a></p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Services</h4>
+          <a href="valuations.html">Jewellery Valuations</a>
+          <a href="expert-witness.html">Expert Witness</a>
+          <a href="tutoring.html">Tutoring &amp; Education</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Information</h4>
+          <a href="about.html">About Gaynor</a>
+          <a href="enquiries.html">Make an Enquiry</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+
+        <div class="footer-accreditations">
+          <h4>Accreditations</h4>
+          <div class="accreditation-badges">
+            <span class="badge">FIRV · 96916</span>
+            <span class="badge">FNAJ</span>
+            <span class="badge">Gem-A</span>
+            <span class="badge">SoJH</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="footer-base">
+        <p>© 2025 GHW Valuations. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ─── SCRIPTS ──────────────────────────────────────────────── -->
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    });
+    document.getElementById('nav-toggle').addEventListener('click', () => {
+      document.getElementById('site-nav').classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
